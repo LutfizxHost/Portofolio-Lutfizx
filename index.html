@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" herf="image/favico.ico">
+    <title>Portfolio Class V</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Reset dan Styling Dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #0f0f1a;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Background Partikel */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        /* Container Utama */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Section Header/Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #646cff;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(100, 108, 255, 0.3);
+        }
+
+        .typing-text {
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #ffffff;
+            min-height: 72px;
+        }
+
+        .typing-text .typed-cursor {
+            color: #646cff;
+            font-weight: 300;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #cccccc;
+            margin-bottom: 40px;
+        }
+
+        /* Section Layanan, Pengalaman, dan Proyek */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #ffffff;
+        }
+
+        /* Grid untuk Kartu */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* Style Kartu */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #646cff;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .card-caption {
+            color: #cccccc;
+            font-size: 1rem;
+        }
+
+        /* Style Proyek */
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #646cff;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #535bf2;
+        }
+
+        /* Style Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .social-links a {
+            color: #ffffff;
+            font-size: 1.8rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #646cff;
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Partikel -->
+    <div id="particles-js"></div>
+
+    <!-- Section Header/Hero -->
+    <section class="hero">
+        <div class="container">
+            <img src="https://files.catbox.moe/8zldhv.jpeg" alt="Foto Lutfizx" class="profile-img">
+            <h1 class="typing-text"></h1>
+            <p class="subtitle">Halo saya adalah seorang siswa pelajar yang mempelajari html, css, JavaScript</p>
+        </div>
+    </section>
+
+    <!-- Section Layanan -->
+    <section class="section">
+        <div class="container">
+                      <h2 class="section-title">Keahlian saya</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <i class="fab fa-html5 card-icon"></i>
+                    <h3 class="card-title">Struktur Web Sinematik</h3>
+                </div>
+                <div class="card">
+                    <i class="fab fa-css3-alt card-icon"></i>
+                    <h3 class="card-title">Web Responsif</h3>
+                </div>
+                <div class="card">
+                    <i class="fab fa-js-square card-icon"></i>
+                    <h3 class="card-title">Interaktivitas Web</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Pengalaman -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Pengalaman</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <i class="fas fa-code card-icon"></i>
+                    <h3 class="card-title">Web Development</h3>
+                    <p class="card-caption">Pengalaman membuat website responsif menggunakan HTML, CSS, dan JavaScript. Fokus pada desain yang menarik dan fungsional.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-palette card-icon"></i>
+                    <h3 class="card-title">UI/UX Design</h3>
+                    <p class="card-caption">Merancang antarmuka pengguna (UI) yang estetik dan pengalaman pengguna (UX) yang intuitif untuk memastikan interaksi yang mulus.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-chart-line card-icon"></i>
+                    <h3 class="card-title">Digital Marketing</h3>
+                    <p class="card-caption">Memahami strategi pemasaran digital dan membuat konten untuk mencapai target dan meningkatkan jangkauan audiens.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Proyek -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Proyek</h2>
+            <div class="cards-grid">
+                <div class="project-card">
+                    <img src="https://files.catbox.moe/pgha6q.jpg" alt="Proyek LutzzBotzz AI" class="project-img">
+                    <div class="project-content">
+                        <h3 class="project-title">LutzzBotzz AI</h3>
+                        <p class="card-caption">Website AI yang merespon pertanyaanmu dan bisa menjelaskan apa yang kamu tanya serta bisa diajak ngobrol juga.</p>
+                        <a href="https://Lutzz-botzz-ai.vercel.app" class="btn" target="_blank">Selengkapnya</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h2 class="section-title">Hubungi Saya</h2>
+            <div class="social-links">
+                <a href="https://github.com/Lutfizxhost" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.youtube.com/@LutfizxHost" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/lutfizx_kelazz" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="copyright">©2025 Lutfizx</p>
+        </div>
+    </footer>
+
+    <!-- Script untuk Partikel dan Efek Mengetik -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Inisialisasi Background Partikel
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#646cff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#646cff",
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true
+                }
+            }
+        });
+
+        // Efek Teks Mengetik
+        document.addEventListener("DOMContentLoaded", function() {
+            const typingElement = document.querySelector('.typing-text');
+            const texts = ["Lutfizx", "Developer Lutfizx"];
+            let textIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let typingSpeed = 100;
+
+            function typeText() {
+                const currentText = texts[textIndex];
+                
+                if (isDeleting) {
+                    typingElement.textContent = currentText.substring(0, charIndex - 1);
+                    charIndex--;
+                    typingSpeed = 50;
+                } else {
+                    typingElement.textContent = currentText.substring(0, charIndex + 1);
+                    charIndex++;
+                    typingSpeed = 100;
+                }
+
+                if (!isDeleting && charIndex === currentText.length) {
+                    isDeleting = true;
+                    typingSpeed = 1500; // Jeda sebelum menghapus
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    textIndex = (textIndex + 1) % texts.length;
+                    typingSpeed = 500; // Jeda sebelum mengetik teks baru
+                }
+
+                setTimeout(typeText, typingSpeed);
+            }
+
+            // Mulai efek mengetik setelah halaman dimuat
+            setTimeout(typeText, 1000);
+        });
+    </script>
+</body>
+</html>
